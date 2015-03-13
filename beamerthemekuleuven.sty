@@ -29,15 +29,20 @@
 		\setbeamertemplate{enumerate item}[ball]			% item symbo
 		\setbeamertemplate{enumerate subitem}[ball]			% item symboll
 	\setbeamertemplate{sections/subsections in toc}[ball]	% toc symbols
-	\setbeamersize{text margin left=0.2cm,text margin right=0.2cm} % text margins
+	\setbeamersize{text margin left=5mm,text margin right=5mm} % text margins
 		
 %outer theme
 	\setbeamertemplate{navigation symbols}{} % remove the navigation symbols
 	%headline	
-	\setbeamertemplate{frametitle}
-	{
+	\setbeamertemplate{frametitle}{
 		\vskip 2mm
-		{\thesection~--~\insertframetitle}
+		{
+			\ifnum \thesection=0
+				\insertframetitle
+			\else
+				\thesection~--~\insertframetitle
+			\fi
+		}
 		\vskip 1mm
 		\hrule
 	}

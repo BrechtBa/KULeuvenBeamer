@@ -1,20 +1,22 @@
 \documentclass[11pt,t]{beamer}
 \input{tex/beamer_packages}
 
+\graphicspath{{fig/}} % path to the graphics folder
+
+
 \mode<presentation> {\usetheme{kuleuven}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Title of the presentation}
-\author{author 1, author 2, author 3}
-\institute{Group, department, KU Leuven}
 \subtitle{subtitle}
-\date{January 6, 2013, Leuven, Belgium}
+\author{Brecht Baeten}
+\institute{TME, Mechanical engineering, KU Leuven}
+\date{March 13, 2015}
 %pdf metadata
 	\subject{KU Leuven's LaTeX template for oral presentation}
-	\keywords{KU Leuven, LaTeX template, beamer, TikZ, pdfLaTeX}
-\graphicspath{{fig/}} % path to the graphics folder
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\keywords{KU Leuven, LaTeX template, beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %title page
 	{
@@ -23,15 +25,15 @@
 		\titlepage
 	\end{frame}
 	}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Outline}
 	\vskip 5mm
 	\hfill	{\large \parbox{.95\textwidth}{\tableofcontents[hideallsubsections]}}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Slides with text only}
-%--------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Itemize and enumerate ideas with overlays}
 	\begin{itemize}
 		\item \textcolor{black}{first item}
@@ -46,7 +48,7 @@
 			\end{itemize}
 	\end{itemize}
 \end{frame}
-%--------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[t]{Double--column slide}
 	\begin{columns}[t]
 		\begin{column}{.5\textwidth}
@@ -57,7 +59,7 @@
 		\end{column}
 	\end{columns}	
 \end{frame}
-%--------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Fancy text and equations}
 	\begin{center}~
 		\begin{beamercolorbox}[wd=0.4\textwidth,rounded=true,center]{text}
@@ -75,10 +77,10 @@
 		\textbf{M} \ddot{\textbf{q}} + \boldsymbol{\mathsf{\Phi}}_{\textbf{q}}^T \boldsymbol\lambda = \textbf{Q}
 	\end{equation}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Slides with graphics and animations}
-%--------------------------------------
-\begin{frame}{Graphics and animation side by side}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Slides with graphics and text}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Graphics and text side by side}
 	\begin{figure}
 		\begin{minipage}[b]{0.49\linewidth}
 			\centering
@@ -86,17 +88,20 @@
 		\end{minipage}
 		\hfill	
 		\begin{minipage}[b]{0.5\linewidth}
-			\centering
+			Some text about the figure here or some other things
+			\begin{itemize}
+				\item first subitem
+				\item second subitem
+			\end{itemize}
 		\end{minipage}
 	\end{figure}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Further reading}
-%--------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[t]{Further reading}
 	\begin{itemize}
 		\item BEAMER class user guide
-		\item TikZ and PGF manual
 	\end{itemize}
 \end{frame}
 \end{document}
