@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry}              		 % 
+\usepackage[english]{babel}              % Voor nederlandstalige hyphenatie (woordsplitsing)
+\usepackage{amsmath,amsthm}              % Uitgebreide wiskundige mogelijkheden
+\usepackage{url}                         % Om url's te verwerken
+\usepackage{graphicx,subfigure}          % Om figuren te kunnen verwerken
+\usepackage{color}						 % Om kleuren in Inkscape figuren te kunnen weergeven
+\usepackage[utf8]{inputenc}              % Om niet ascii karakters rechtstreeks te kunnen typen
+\usepackage{float}                       % Om nieuwe float environments aan te maken. Ook optie H!
+\usepackage[section]{placeins}			 % Om ervoor te zorgen dat floats binnen dezelfde section blijven
+\usepackage{eurosym}                     % om het euro symbool te krijgen
+\usepackage{textcomp}                    % Voor onder andere graden celsius
+%\usepackage{fancyhdr}                    % Voor fancy headers en footers
+\usepackage{parskip}                     % Om paragrafen met een verticale spatie ipv horizontaal te laten beginnen
+\usepackage{multicol}
+%\usepackage[plainpages=false]{hyperref}  % Om hyperlinks te hebben in het pdfdocument
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Omgevingen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Nieuwe commandos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% De differentiaal operator
+\newcommand{\diff}{\ensuremath{\mathrm{d}}}
+\newcommand{\subsdiff}{\ensuremath{\mathrm{D}}}
+\newcommand{\vardiff}{\ensuremath{\mathrm{\delta}}}
+
+% Vectoren en matrices
+\renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}}   % vector in bold
+\newcommand{\mat}[1]{\ensuremath{\mathsf{#1}}}	    % matrix in serif font
+
+
+% Graden celcius
+\newcommand{\degC}{\ensuremath{^\circ \mathrm{C}}}
+
+% nieuw commando om svg files dynamisch te updaten
+\newcommand{\executeiffilenewer}[3]{%
+\ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
+{\pdffilemoddate{#2}}>0%
+{\immediate\write18{#3}}\fi%
+}
+
+% nieuw commando om svg files in te voeren en dynamisch te updaten
+\newcommand{\includesvg}[2][0]{%
+\executeiffilenewer{#2.svg}{#2.pdf}%
+{inkscape -z -C --file=#2.svg %
+--export-pdf=#2.pdf --export-latex}%
+\ifx#10
+	\let\svgwidth\undefined
+\else
+	\def\svgwidth{#1}
+\fi%
+\input{#2.pdf_tex}%
+\ifx \svgwidth\undefined
+\else
+	\let\svgwidth\undefined
+\fi%
+}
+
+% nieuw commando om fig files in te voeren
+\newcommand{\includefig}[2][0]{%
+\ifx#10
+	\let\matwidth\undefined
+\else
+	\def\matwidth{#1}
+\fi%
+\input{#2.pdf_tex}%
+\ifx \matwidth\undefined
+\else
+	\let\matwidth\undefined
+\fi%
+}
