@@ -1,5 +1,5 @@
 \usepackage[absolute,overlay]{textpos}
-
+\usepackage{setspace}
 
 \mode<presentation>
 
@@ -77,18 +77,24 @@
 			\includegraphics[height=0.10\paperheight]{sedes.eps}
 		\end{textblock*}
 		\begin{textblock*}{\paperwidth}(0.32\paperwidth,0.30\paperheight)
-			\begin{beamercolorbox}[ht=0.20\paperheight,wd=0.58\paperwidth]{text}
-				\huge\inserttitle
+			\begin{beamercolorbox}[ht=0.20\paperheight,wd=0.60\paperwidth]{text}
+				{\setstretch{0.80}\Large\textbf{\inserttitle}}
 			\end{beamercolorbox}
-			\begin{beamercolorbox}[ht=0.04\paperheight,wd=0.58\paperwidth]{text}
-				\large\insertsubtitle
+			\begin{beamercolorbox}[ht=0.08\paperheight,wd=0.58\paperwidth]{text}
+				\vbox to 0.08\paperheight{\large\insertsubtitle\vfil}
 			\end{beamercolorbox}
-			\vspace{5mm}
-			\begin{beamercolorbox}[ht=0.04\paperheight,wd=0.58\paperwidth]{text}
+			\begin{beamercolorbox}[ht=0.04\paperheight,wd=0.58\paperwidth,dp=1mm]{text}
 				\insertauthor
 			\end{beamercolorbox}
-			\begin{beamercolorbox}[ht=0.04\paperheight,wd=0.58\paperwidth]{text}
-				\insertinstitute
+			\begin{beamercolorbox}[ht=0.12\paperheight,wd=0.58\paperwidth]{text}
+				{
+				\makeatletter
+				\def\beamer@andinst{\\}
+				\makeatother
+				\setstretch{0.90}
+				
+				\vbox to 0.12\paperheight{\small\insertinstitute}
+				}
 			\end{beamercolorbox}
 			\begin{beamercolorbox}[ht=0.04\paperheight,wd=0.58\paperwidth]{text}
 				\insertdate
