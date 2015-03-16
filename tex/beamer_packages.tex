@@ -56,31 +56,17 @@
 
 % nieuw commando om svg files in te voeren en dynamisch te updaten
 \newcommand{\includesvg}[2][0]{%
-\executeiffilenewer{#2.svg}{#2.pdf}%
+\executeiffilenewer{#2.svg}{#2eps}%
 {inkscape -z -C --file=#2.svg %
---export-pdf=#2.pdf --export-latex}%
+--export-eps=#2.eps --export-latex}%
 \ifx#10
 	\let\svgwidth\undefined
 \else
 	\def\svgwidth{#1}
 \fi%
-\input{#2.pdf_tex}%
+\input{#2.eps_tex}%
 \ifx \svgwidth\undefined
 \else
 	\let\svgwidth\undefined
-\fi%
-}
-
-% nieuw commando om fig files in te voeren
-\newcommand{\includefig}[2][0]{%
-\ifx#10
-	\let\matwidth\undefined
-\else
-	\def\matwidth{#1}
-\fi%
-\input{#2.pdf_tex}%
-\ifx \matwidth\undefined
-\else
-	\let\matwidth\undefined
 \fi%
 }
