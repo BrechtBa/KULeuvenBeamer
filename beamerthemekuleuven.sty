@@ -1,5 +1,4 @@
 \usepackage[absolute,overlay]{textpos}
-\usepackage{setspace}
 
 \mode<presentation>
 
@@ -16,10 +15,19 @@
 	\setbeamercolor{block title}{bg=blue_kuleuven,fg=white}		% block title color
 	\setbeamercolor{block body}{bg=black!20!white,fg=blue_kuleuven}	% block body color
 	
+	\setbeamercolor{math text}{fg=black}
+	\setbeamercolor{math text displayed}{fg=black}
+	\setbeamercolor*{bibliography item}{fg=black}
+	\setbeamercolor*{bibliography entry title}{fg=black}
+	\setbeamercolor*{bibliography entry author}{fg=black}
+	\setbeamercolor*{bibliography entry journal}{fg=black}
+	\setbeamercolor*{bibliography entry note}{fg=black}
+	
 %fonts
-	\usefonttheme[onlymath]{serif}							% math font
-	\setbeamerfont{frametitle}{size = \bf \large}			% frame title font size
-	\setbeamerfont{enumerate item}{size=\Large}				% item symbol font size
+	\usefonttheme[onlymath]{serif}						% math font
+	\setbeamerfont{frametitle}{size=\bf \large}			% frame title font size
+	\setbeamerfont{enumerate item}{size=\Large}			% item symbol font size
+	\setbeamerfont{footnote}{size=\tiny}				% footnote font size
 
 %inner theme
 	%itemize list
@@ -50,13 +58,14 @@
 	%footline
 	\setbeamertemplate{footline}{
 		\hspace{-2mm}
+		\vspace{8mm}
 		\begin{textblock*}{1.01\paperwidth}(0mm,0.94\paperheight)
 			\begin{beamercolorbox}[ht=0.06\paperheight,wd=\paperwidth,center]{block title}
 				\insertframenumber \vspace{2mm}
 			\end{beamercolorbox}
 		\end{textblock*}
 		\begin{textblock*}{1.01\paperwidth}(0.78\paperwidth,0.88\paperheight)
-			\includegraphics[width=0.18\paperwidth]{kuleuven_CMYK_logo.eps}
+			\includegraphics[width=0.18\paperwidth]{fig/kuleuven_CMYK_logo.eps}
 		\end{textblock*}
 	}
 		
@@ -68,17 +77,17 @@
 			\end{beamercolorbox}
 		\end{textblock*}
 		\begin{textblock*}{0.2\paperwidth}(0.04\paperwidth,0.06\paperheight)
-			\includegraphics[width=0.18\paperwidth]{kuleuven_CMYK_logo.eps}
+			\includegraphics[width=0.18\paperwidth]{fig/kuleuven_CMYK_logo.eps}
 		\end{textblock*}			
 		\begin{textblock*}{0.2\paperwidth}(0.06\paperwidth,0.26\paperheight)
-			\includegraphics[width=0.18\paperwidth]{sleutel.eps}
+			\includegraphics[width=0.18\paperwidth]{fig/sleutel.eps}
 		\end{textblock*}
 		\begin{textblock*}{0.1\paperwidth}(0.90\paperwidth,0.84\paperheight)
-			\includegraphics[height=0.10\paperheight]{sedes.eps}
+			\includegraphics[height=0.10\paperheight]{fig/sedes.eps}
 		\end{textblock*}
 		\begin{textblock*}{\paperwidth}(0.32\paperwidth,0.30\paperheight)
 			\begin{beamercolorbox}[ht=0.20\paperheight,wd=0.60\paperwidth]{text}
-				{\setstretch{0.80}\Large\textbf{\inserttitle}}
+				{\Large\textbf{\inserttitle}}
 			\end{beamercolorbox}
 			\begin{beamercolorbox}[ht=0.08\paperheight,wd=0.58\paperwidth]{text}
 				\vbox to 0.08\paperheight{\large\insertsubtitle\vfil}
@@ -91,7 +100,6 @@
 				\makeatletter
 				\def\beamer@andinst{\\}
 				\makeatother
-				\setstretch{0.90}
 				
 				\vbox to 0.12\paperheight{\small\insertinstitute}
 				}
