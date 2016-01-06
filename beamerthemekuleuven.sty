@@ -3,26 +3,31 @@
 \mode<presentation>
 
 %colors
-	\definecolor{blue_kuleuven}		{RGB}{17,110,138}			% blue of the university
-	\setbeamercolor{normal text}	{fg = blue_kuleuven}		% text color
-	\setbeamercolor{frametitle}		{fg=blue_kuleuven}			% frame title color
-	\setbeamercolor{section in toc}{fg=blue_kuleuven}			% toc (section) color
-	\setbeamercolor{section in toc shaded}{fg=blue_kuleuven}	% toc (shaded section) color
-	\setbeamercolor{item}			{fg=blue_kuleuven}			% item color
-	\setbeamercolor{subitem}		{fg=blue_kuleuven}			% subitem color
-	\setbeamercolor{subsubitem}		{fg=blue_kuleuven}			% subsubitem color
-	\setbeamercolor{text}			{fg=white,bg=blue_kuleuven}	% text block color
-	\setbeamercolor{block title}{bg=blue_kuleuven,fg=white}		% block title color
+	\definecolor{blue_kuleuven}{RGB}{17,110,138}					% blue of the university
+	\definecolor{dark_blue_kuleuven}{RGB}{12,75,97}					% darker shade of blue
+	\setbeamercolor{normal text}{fg=blue_kuleuven}					% text color
+	\setbeamercolor{frametitle}{fg=blue_kuleuven}					% frame title color
+	\setbeamercolor{section in toc}{fg=blue_kuleuven}				% toc (section) color
+	\setbeamercolor{section in toc shaded}{fg=blue_kuleuven}		% toc (shaded section) color
+	\setbeamercolor{item}{fg=blue_kuleuven}							% item color
+	\setbeamercolor{subitem}{fg=blue_kuleuven}						% subitem color
+	\setbeamercolor{subsubitem}{fg=blue_kuleuven}					% subsubitem color
+	\setbeamercolor{text}{bg=blue_kuleuven,fg=white}				% text block color
+	\setbeamercolor{block title}{bg=blue_kuleuven,fg=white}			% block title color
 	\setbeamercolor{block body}{bg=black!20!white,fg=blue_kuleuven}	% block body color
 	
 	\setbeamercolor{math text}{fg=black}
 	\setbeamercolor{math text displayed}{fg=black}
-	\setbeamercolor*{bibliography item}{fg=black}
-	\setbeamercolor*{bibliography entry title}{fg=black}
-	\setbeamercolor*{bibliography entry author}{fg=black}
-	\setbeamercolor*{bibliography entry journal}{fg=black}
-	\setbeamercolor*{bibliography entry note}{fg=black}
 	
+	\setbeamercolor{caption name}{fg=black!80!white}
+	\setbeamercolor{caption}{fg=black!80!white}
+
+	\setbeamercolor*{bibliography item}{fg=black!80!white}
+	\setbeamercolor*{bibliography entry title}{fg=black!80!white}
+	\setbeamercolor*{bibliography entry author}{fg=black!80!white}
+	\setbeamercolor*{bibliography entry journal}{fg=black!80!white}
+	\setbeamercolor*{bibliography entry note}{fg=black!80!white}
+
 %fonts
 	\usefonttheme[onlymath]{serif}						% math font
 	\setbeamerfont{frametitle}{size=\bf \large}			% frame title font size
@@ -31,17 +36,21 @@
 
 %inner theme
 	%itemize list
-		\setbeamertemplate{itemize item}[ball] 				% item symbol
-		\setbeamertemplate{itemize subitem}[ball]			% subitem symbol
+	\setbeamertemplate{itemize item}[triangle] 			% item symbol
+	\setbeamertemplate{itemize subitem}[circle]			% subitem symbol
+	
 	%enumerate list
-		\setbeamertemplate{enumerate item}[ball]			% item symbo
-		\setbeamertemplate{enumerate subitem}[ball]			% item symboll
-	\setbeamertemplate{sections/subsections in toc}[ball]	% toc symbols
+	\setbeamertemplate{enumerate item}[numbered]		% item symbol
+	\setbeamertemplate{enumerate subitem}[numbered]		% item symbol
+	\setbeamerfont{enumerate item}{size=\normalsize}
+	
+	\setbeamertemplate{sections/subsections in toc}[sections numbered]	% toc symbols
+	\setbeamerfont{section in toc}{series=\bf}
 	\setbeamersize{text margin left=5mm,text margin right=5mm} % text margins
 		
 %outer theme
-	\setbeamertemplate{navigation symbols}{} % remove the navigation symbols
-	%headline	
+	\setbeamertemplate{navigation symbols}{} 		% remove the navigation symbols
+	% headline	
 	\setbeamertemplate{frametitle}{
 		\vskip 2mm
 		{
@@ -55,7 +64,7 @@
 		\hrule
 	}
 
-	%footline
+	% footline
 	\setbeamertemplate{footline}{
 		\hspace{-2mm}
 		\vspace{8mm}
@@ -69,9 +78,8 @@
 		\end{textblock*}
 	}
 		
-%title page
-	\setbeamertemplate{title page}
-	{
+	% title page
+	\setbeamertemplate{title page}{
 		\begin{textblock*}{\paperwidth}(0mm,0.10\paperheight)
 			\begin{beamercolorbox}[ht=0.90\paperheight,wd=\paperwidth,center]{block title}
 			\end{beamercolorbox}
@@ -108,18 +116,18 @@
 				\insertdate
 			\end{beamercolorbox}
 		\end{textblock*}
-		
 	}
 	
-%display toc before each section
-\AtBeginSection[] {
-	\begin{frame} 
-    	\frametitle{Outline} 
-    	\vskip 5mm
-		\hfill	{\large\parbox {.95\textwidth}{\tableofcontents[currentsection,hideallsubsections]}}
-	\end{frame} 
-	}
 	
+% display toc before each section
+	\AtBeginSection[] {
+		\begin{frame}{Outline}
+    		\vskip 5mm
+			\hfill	{\large\parbox {.95\textwidth}{\tableofcontents[currentsection,hideallsubsections]}}
+		\end{frame}
+		}
+% add numbers to captions
+	\setbeamertemplate{caption}[numbered]
 	
 % bibliography
 	\setbeamertemplate{bibliography item}{[\theenumiv]}

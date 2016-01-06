@@ -1,13 +1,13 @@
 \documentclass[11pt,t]{beamer}
 \input{tex/beamer_packages}
 
-\graphicspath{{fig/}}             % path to the graphics folder
+%\graphicspath{{fig/}}             % path to the graphics folder
 \addbibresource{literature.bib}   % bibtex file
 
 \mode<presentation> {\usetheme{kuleuven}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Title of the presentation can be very long without any problems, even longer should be possible without giving overflow of text to other regions of the slides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Title of the presentation can be very long without any problems, even longer should be possible.}
 \subtitle{subtitle}
 \author{Author1\inst{1} \and Author2\inst{2}}
 \institute{
@@ -20,39 +20,52 @@
 	\subject{KU Leuven's LaTeX template for oral presentation}
 	\keywords{KU Leuven, LaTeX template, beamer}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-%title page
+% title page
 	{
 	\setbeamertemplate{footline}{}
 	\begin{frame}
 		\titlepage
 	\end{frame}
 	}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Outline}
 	\vskip 5mm
 	\hfill	{\large \parbox{.95\textwidth}{\tableofcontents[hideallsubsections]}}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Slides with text only}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Itemize and enumerate ideas with overlays}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Itemize and enumerate}
 	\begin{itemize}
-		\item \textcolor{black}{first item}
+		\item First item
 			\begin{itemize}
 				\item first subitem
 				\item second subitem
 			\end{itemize}
-		\item \textcolor{black}{second item}
+		\item Second item
 			\begin{itemize}
 				\item first subitem
 				\item second subitem
 			\end{itemize}
 	\end{itemize}
+	
+	\begin{enumerate}
+		\item First item
+			\begin{itemize}
+				\item first subitem
+				\item second subitem
+			\end{itemize}
+		\item Second item
+			\begin{enumerate}
+				\item first subitem
+				\item second subitem
+			\end{enumerate}
+	\end{enumerate}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[t]{Double--column slide}
 	\begin{columns}[t]
 		\begin{column}{.5\textwidth}
@@ -63,9 +76,9 @@
 		\end{column}
 	\end{columns}	
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Fancy text and equations}
-	\begin{center}~
+	\begin{center}
 		\begin{beamercolorbox}[wd=0.4\textwidth,rounded=true,center]{text}
 			This is a beamer color box
 		\end{beamercolorbox}
@@ -78,31 +91,54 @@
 	\end{proof}
 	\vspace{4mm}
 	\begin{equation}
-		\textbf{M} \ddot{\textbf{q}} + \boldsymbol{\mathsf{\Phi}}_{\textbf{q}}^T \boldsymbol\lambda = \textbf{Q}
+		M \ddot{q} + \mathsf{\Phi}_{q}^T \lambda = Q
 	\end{equation}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Slides with graphics and text}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Graphics and text side by side}
+	\fboxsep=0pt
+	\noindent%
+	\begin{minipage}[b]{0.39\linewidth}
+		\centering
+		\includegraphics[width=.5\textwidth,natwidth=265,natheight=314]{fig/Tux.png}
+	\end{minipage}%
+	\hfill%	
+	\begin{minipage}[b]{0.59\linewidth}
+		Some text about the figure here or some other things
+		\begin{itemize}
+			\item first subitem
+			\item second subitem
+		\end{itemize}
+	\end{minipage}%
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Figures with caption}
 	\begin{figure}
-		\begin{minipage}[b]{0.49\linewidth}
-			\centering
-			\includegraphics[width=.3\textwidth,natwidth=265,natheight=314]{Tux.png}
-		\end{minipage}
-		\hfill	
-		\begin{minipage}[b]{0.5\linewidth}
-			Some text about the figure here or some other things
-			\begin{itemize}
-				\item first subitem
-				\item second subitem
-			\end{itemize}
-		\end{minipage}
+		\centering
+		\includegraphics[width=.5\textheight,natwidth=265,natheight=314]{fig/Tux.png}
+		\caption{An illustrative caption for the figure}
 	\end{figure}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Overlayed graphics}
+	\begin{textblock}{4}(1,2)
+		\includegraphics[width=4cm,natwidth=265,natheight=314]{fig/Tux.png}
+    \end{textblock}
+    \begin{textblock}{4}(4,3)
+		\includegraphics[width=4cm,natwidth=265,natheight=314]{fig/Tux.png}
+    \end{textblock}
+    \begin{textblock}{4}(7,4)
+		\includegraphics[width=4cm,natwidth=265,natheight=314]{fig/Tux.png}
+    \end{textblock}
+    \begin{textblock}{4}(10,5)
+		\includegraphics[width=4cm,natwidth=265,natheight=314]{fig/Tux.png}
+    \end{textblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Further reading}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[t]{Further reading}
 	\begin{itemize}
 		\item BEAMER class user guide \footfullcite{Beamer2013}
