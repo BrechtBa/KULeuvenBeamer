@@ -18,7 +18,7 @@
    sodipodi:docname="sedes.svg"><metadata
      id="metadata8"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
      id="defs6" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -38,7 +38,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g10"><inkscape:grid
+     inkscape:current-layer="layer1"><inkscape:grid
        type="xygrid"
        id="grid2998"
        empspacing="5"
@@ -48,7 +48,8 @@
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="bg"
-     sodipodi:insensitive="true"><rect
+     sodipodi:insensitive="true"
+     style="display:none"><rect
        style="fill:#116e8a;fill-opacity:1;fill-rule:evenodd;stroke:none"
        id="rect3001"
        width="500"
