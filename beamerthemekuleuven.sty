@@ -5,10 +5,10 @@
 
 %colors
 	\definecolor{blue_kuleuven}{RGB}{17,110,138}					% blue of the university
-	\definecolor{dark_blue_kuleuven}{RGB}{0,64,122}					% darker shade of blue17,59,117
-	\definecolor{light_blue_kuleuven}{RGB}{35,162,229}				% lighter shade of blue
+	\definecolor{dark_blue_kuleuven}{RGB}{0,64,122}					% darker shade of blue
+	\definecolor{light_blue_kuleuven}{RGB}{82,189,236}				% lighter shade of blue
 	\setbeamercolor{normal text}{fg=dark_blue_kuleuven}				% text color
-	\setbeamercolor{frametitle}{fg=light_blue_kuleuven}				% frame title color
+	\setbeamercolor{frametitle}{fg=blue_kuleuven!40!light_blue_kuleuven}	% frame title color
 	\setbeamercolor{section in toc}{fg=dark_blue_kuleuven}			% toc (section) color
 	\setbeamercolor{section in toc shaded}{fg=dark_blue_kuleuven}	% toc (shaded section) color
 	\setbeamercolor{item}{fg=dark_blue_kuleuven}					% item color
@@ -90,7 +90,7 @@
 			
 			\begin{tcolorbox}[
 				arc=0pt,boxrule=0pt,height=0.90\paperheight,width=\paperwidth,
-				coltext=white,skin=bicolor,valign=center,halign=center,
+				valign=center,halign=center,skin=bicolor,coltext=white,
 				interior style={left color=blue_kuleuven!70!white,right color=blue_kuleuven!90!black}
 				]
 			\end{tcolorbox}
@@ -162,5 +162,11 @@
 	\setbeamertemplate{bibliography entry location}{\\}
 	\setbeamertemplate{bibliography entry note}{\\}
 	
+% custombox	
+	\newtcolorbox{kulbox}[1]{
+		coltext=blue_kuleuven,skin=bicolor,
+		frame style={left color=blue_kuleuven!70!white,right color=blue_kuleuven!90!black},
+  		title=#1
+	}
 \mode
 <all> 
