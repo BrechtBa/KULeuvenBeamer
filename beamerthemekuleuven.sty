@@ -18,7 +18,7 @@
 	\setbeamercolor{block title}{bg=blue_kuleuven,fg=white}			% block title color
 	\setbeamercolor{block body}{bg=black!20!white,fg=blue_kuleuven}	% block body color
 	
-	\setbeamercolor{math text}{fg=black}
+	%\setbeamercolor{math text}{fg=black}
 	\setbeamercolor{math text displayed}{fg=black}
 	
 	\setbeamercolor{caption name}{fg=black!80!white}
@@ -113,18 +113,20 @@
 				coltext=white,opacityback=0.0]
 				{\Large\textbf{\inserttitle}}
 			\end{tcolorbox}
-			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
+			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=1pt,
 				halign=flush left,width=0.58\paperwidth,
 				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
 				coltext=white,opacityback=0.0]
-				\vbox to 0.08\paperheight{\large\insertsubtitle\vfil}
+				\large\insertsubtitle
 			\end{tcolorbox}
+			\vspace{2mm}
 			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
 				halign=flush left,width=0.58\paperwidth,
 				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
 				coltext=white,opacityback=0.0]
 				\insertauthor
 			\end{tcolorbox}
+			\vspace{-1mm}
 			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
 				halign=flush left,width=0.58\paperwidth,
 				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
@@ -133,9 +135,10 @@
 				\makeatletter
 				\def\beamer@andinst{\\}
 				\makeatother
-				\vbox to 0.08\paperheight{\small\insertinstitute}
+				\scriptsize\insertinstitute
 				}
 			\end{tcolorbox}
+			\vspace{3mm}
 			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
 				halign=flush left,width=0.58\paperwidth,height=0.04\paperheight,
 				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
