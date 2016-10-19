@@ -6,3 +6,10 @@
 *.nav
 *.snm
 *.toc
+*.bak
+*.bib
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
