@@ -20,13 +20,20 @@ if 'quick' in sys.argv:
 else:
     quick = False
     
+# argument parsing
+if 'clean' in sys.argv:
+    clean = True
+else:
+    clean = False
+    
+
     
     
-if not quick:
+if not quick or clean:
     # remove files which might mess with the build
-    for ext in ['aux','bbl','blg','glo','gls','ilg','ist','log','out','nlo','nls','out','spl','toc','synctex.gz','run.xml']:
+    for ext in ['.aux','.bbl','.blg','.glo','.gls','.ilg','.ist','.log','.out','.nlo','.nls','.out','.spl','.toc','.synctex.gz','.run.xml','.nav','.bcf','.snm','-blx.bib']:
         try:
-            os.remove('{}.{}'.format(mainfilename,ext))
+            os.remove('{}{}'.format(mainfilename,ext))
         except:
             pass
            
@@ -34,35 +41,36 @@ if not quick:
             
 # run commands
 try:
-    with open('build.log','w') as f:
-        print('### LATEX ###')
-        cmd = ['pdflatex', '-interaction=nonstopmode', '-synctex=1', '-shell-escape','{}'.format(mainfilename)]
-        print('running {}'.format(' '.join(cmd)))
-        subprocess.call(cmd,stdout=f)
-    
-    if not quick:
-        print('### BIBER ###')
-        cmd = ['biber','{}'.format(mainfilename)]
-        print('running {}'.format(' '.join(cmd)))
-        subprocess.call(cmd)
-        
-        print('### LATEX ###')
+    if not clean:
         with open('build.log','w') as f:
+            print('### LATEX ###')
             cmd = ['pdflatex', '-interaction=nonstopmode', '-synctex=1', '-shell-escape','{}'.format(mainfilename)]
             print('running {}'.format(' '.join(cmd)))
             subprocess.call(cmd,stdout=f)
         
-        print('### LATEX ###')
-        with open('build.log','w') as f:
-            cmd = ['pdflatex', '-interaction=nonstopmode', '-synctex=1', '-shell-escape','{}'.format(mainfilename)]
+        if not quick:
+            print('### BIBER ###')
+            cmd = ['biber','{}'.format(mainfilename)]
             print('running {}'.format(' '.join(cmd)))
-            subprocess.call(cmd,stdout=f)
+            subprocess.call(cmd)
+            
+            print('### LATEX ###')
+            with open('build.log','w') as f:
+                cmd = ['pdflatex', '-interaction=nonstopmode', '-synctex=1', '-shell-escape','{}'.format(mainfilename)]
+                print('running {}'.format(' '.join(cmd)))
+                subprocess.call(cmd,stdout=f)
+            
+            print('### LATEX ###')
+            with open('build.log','w') as f:
+                cmd = ['pdflatex', '-interaction=nonstopmode', '-synctex=1', '-shell-escape','{}'.format(mainfilename)]
+                print('running {}'.format(' '.join(cmd)))
+                subprocess.call(cmd,stdout=f)
             
 except:
     pass
     
 else:
-    if open_pdf:
+    if not clean and open_pdf:
         subprocess.call([pdfreader,"{}.pdf".format(mainfilename)] )
 
 
