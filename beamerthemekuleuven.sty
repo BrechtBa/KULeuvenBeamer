@@ -113,38 +113,50 @@
 				coltext=white,opacityback=0.0,opacityframe=0.0]
 				{\Large\textbf{\inserttitle}}
 			\end{tcolorbox}
-			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
-				halign=flush left,width=0.58\paperwidth,
-				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
-				coltext=white,opacityback=0.0,opacityframe=0.0]
-				\large\insertsubtitle
-			\end{tcolorbox}
+            \ifx\insertsubtitle\empty
+            \else
+                \begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
+                    halign=flush left,width=0.58\paperwidth,
+                    left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
+                    coltext=white,opacityback=0.0,opacityframe=0.0]
+                    \large\insertsubtitle
+                \end{tcolorbox}
+            \fi
 			\vspace{2mm}
-			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
-				halign=flush left,width=0.58\paperwidth,
-				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
-				coltext=white,opacityback=0.0,opacityframe=0.0]
-				\insertauthor
-			\end{tcolorbox}
-			\vspace{-1mm}
-			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
-				halign=flush left,width=0.58\paperwidth,
-				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
-				coltext=white,opacityback=0.0,opacityframe=0.0]
-				{
-				\makeatletter
-				\def\beamer@andinst{\\}
-				\makeatother
-				\scriptsize\insertinstitute
-				}
-			\end{tcolorbox}
-			\vspace{3mm}
-			\begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
-				halign=flush left,width=0.58\paperwidth,height=0.04\paperheight,
-				left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
-				coltext=white,opacityback=0.0,opacityframe=0.0]
-				\insertdate
-			\end{tcolorbox}
+            \ifx\insertauthor\empty
+            \else
+                \begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
+                    halign=flush left,width=0.58\paperwidth,
+                    left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
+                    coltext=white,opacityback=0.0,opacityframe=0.0]
+                    \insertauthor
+                \end{tcolorbox}
+            \fi
+            \ifx\insertinstitute\empty
+            \else
+                \vspace{-1mm}
+                \begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
+                    halign=flush left,width=0.58\paperwidth,
+                    left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
+                    coltext=white,opacityback=0.0,opacityframe=0.0]
+                    {
+                    \makeatletter
+                    \def\beamer@andinst{\\}
+                    \makeatother
+                    \scriptsize\insertinstitute
+                    }
+                \end{tcolorbox}
+            \fi
+            \ifx\insertdate\empty
+            \else
+                \vspace{1mm}
+                \begin{tcolorbox}[standard jigsaw,arc=0pt,boxrule=0pt,
+                    halign=flush left,width=0.58\paperwidth,height=0.04\paperheight,
+                    left=-1mm,right=-1mm,top=-1mm,bottom=0mm,
+                    coltext=white,opacityback=0.0,opacityframe=0.0]
+                    \insertdate
+                \end{tcolorbox}
+            \fi
 		\end{textblock*}
 	}
 	
